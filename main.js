@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', main);
 
 /** The state for our program */
-const listOfCarBrands = ['BMW', 'Volvo', 'Telsa', 'Audi', 'Saab'];
+let listOfCarBrands = ['BMW', 'Volvo', 'Telsa', 'Audi', 'Saab'];
 
 /** Start of our program */
 function main() {
@@ -27,7 +27,21 @@ function renderCarList() {
 
   for (const carBrand of listOfCarBrands) {
     const li = document.createElement('li');
-    li.textContent = carBrand;
+    li.textContent = carBrand + ' ❌';
+
+    li.addEventListener('click', function () {
+      // 1. Med indexOf & splice.
+      // const indexToRemove = listOfCarBrands.indexOf(carBrand);
+      // listOfCarBrands.splice(indexToRemove, 1);
+
+      // 2. Med filter.
+      listOfCarBrands = listOfCarBrands.filter(
+        (carBrandItem) => carBrandItem !== carBrand
+      );
+
+      renderCarList();
+    });
+
     ul.append(li);
   }
 }
