@@ -10,8 +10,17 @@ function main() {
 }
 
 function addEventListeners() {
-  const button = document.querySelector('button');
-  button.addEventListener('click', removeLastCarBrand);
+  const removeButton = document.querySelector('#remove-car-brand');
+  removeButton?.addEventListener('click', removeLastCarBrand);
+
+  const addButton = document.querySelector('#add-car-brand');
+  addButton?.addEventListener('click', addCarBrand);
+}
+
+function addCarBrand(event) {
+  const result = prompt('Ange ett bilmärke');
+  listOfCarBrands.push(result);
+  renderCarList();
 }
 
 function removeLastCarBrand(event) {
