@@ -7,7 +7,7 @@ const listOfCarBrands = ['BMW', 'Volvo', 'Telsa', 'Audi', 'Saab'];
 function main() {
   renderCarList();
 }
-
+/** Renders the car list to screen */
 function renderCarList() {
   const ul = document.querySelector('ul');
 
